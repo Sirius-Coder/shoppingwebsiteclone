@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+.container {
+    list-style: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    height: 50vh;
+    padding: 20px 10px;
+}
+
+.container label {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    font-weight: 400;
+    color: ##606f7b;
+    opacity: 0.7;
+}
+
+.container nav {
+    margin-top: 20px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.container a {
+    padding: 6px 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.container a:hover {
+    transform: scale(1.1);
+}
+
+.container a:focus {
+    font-weight: 600;
+}
+
+@media screen and (max-width:768px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+        height: 50px;
+    }
+    .container label {
+        display: none;
+    }
+    .container nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    .container a {
+        font-size: 10px;
+        margin: 0px;
+        padding: 10px;
+        height: 20px;
+    }
+}

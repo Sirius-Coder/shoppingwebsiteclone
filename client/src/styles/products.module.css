@@ -1,0 +1,13 @@
+.viewarea {
+    display: flex;
+    width: 95%;
+    margin: 50px auto;
+}
+
+@media screen and (max-width:768px) {
+    .viewarea {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
