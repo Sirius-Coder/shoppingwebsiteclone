@@ -1,30 +1,59 @@
-import React,{createContext,useReducer,useState} from 'react';
+import React, { createContext, useReducer, useState } from 'react';
 import shirt1 from '../img/shirt1.jpg';
-import AppReducer from './AppReducer.js'
+import AppReducer from './AppReducer.js';
 //*Define Intial State
-const intialState={
-    cart:[{id:1,title:'JöJö // PewDiePie',desc:"Gotta big PP?  Join the adventure!  #floorgang",price:2270,img:shirt1}]
-}
+const intialState = {
+  cart: [],
+  product: {},
+};
 //*Creating the GlobalContext
-export const GlobalContext=createContext(intialState);
+export const GlobalContext = createContext(intialState);
 
 //*Provider function to gives access to all the component
- const GlobalProvider=({children})=> {
-    const[state,dispatch]=useReducer(AppReducer,intialState);
-    
-    function deletecart(id)
-    {
-        dispatch({
-            type:'DEL_CART',
-            payload:id
-        })
-    }
+const GlobalProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(AppReducer, intialState);
 
-    return (
-        <GlobalContext.Provider value={{cart:state.cart,dispatch,deletecart}}>
-            {children}
-        </GlobalContext.Provider>
-    )
-}
+  function deleteCart(item) {
+    dispatch({
+      type: 'DEL_CART',
+      payload: item,
+    });
+  }
 
-export default GlobalProvider
+  function displayProduct(data) {
+    dispatch({
+      type: 'PRODUCT_DISPLAY',
+      payload: data,
+    });
+  }
+
+  function addToCart(data) {
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: data,
+    });
+  }
+
+  const clearCart = () => {
+    dispatch({
+      type: 'CLEAR_CART',
+    });
+  };
+
+  return (
+    <GlobalContext.Provider
+      value={{
+        cart: state.cart,
+        product: state.product,
+        addToCart,
+        deleteCart,
+        displayProduct,
+        clearCart,
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>
+  );
+};
+
+export default GlobalProvider;

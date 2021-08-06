@@ -1,14 +1,33 @@
 export default (state, action) => {
-    switch (action.type) {
-        case 'ADDTO_CART':
-            return {
-                cart: state.cart.concat(action.payload)
-            }
+  switch (action.type) {
+    case 'ADD_TO_CART':
+      return {
+        ...state,
+        cart: state.cart.concat([action.payload]),
+      };
+    case 'PRODUCT_DISPLAY':
+      return {
+        ...state,
+        product: action.payload,
+      };
 
+    case 'DEL_CART':
+      return {
+        ...state,
+        cart: state.cart.filter((item) => {
+          return (
+            item.id != action.payload.id && item.title != action.payload.title
+          );
+        }),
+      };
 
-        default:
-            return state;
-    }
-}
+    case 'CLEAR_CART':
+      return {
+        ...state,
+        cart: [],
+      };
 
-//! foo.push method doesn't work use concat instead
+    default:
+      return state;
+  }
+};

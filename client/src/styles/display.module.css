@@ -1,59 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 0px auto;
-    padding: 50px;
-    grid-gap: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0px auto;
+  padding: 50px;
+  grid-gap: 50px;
 }
 
 .container img {
-    height: 336px;
-    width: 336px;
+  height: 336px;
+  width: 336px;
 }
 
 .item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Open Sans', sans-serif;
-    cursor: pointer;
-    animation-name: item;
-    animation-duration: 2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  animation-name: item;
+  animation-duration: 2s;
+}
+
+.item:hover {
+  transform: scale(1.05);
+  transition: 0.25s ease-in all;
+  box-shadow: 2px 2px 16px 9px rgba(161, 161, 161, 0.75);
 }
 
 @keyframes item {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .item h3 {
-    color: #8795a1;
-    font-weight: 400;
-    font-size: 16px;
-    padding: 5px 0px;
-    cursor: pointer;
+  color: #8795a1;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 5px 0px;
+  cursor: pointer;
 }
 
 .item p {
-    color: #3d4852;
-    font-weight: 600;
-    font-size: 16px;
-    padding: 5px 0px;
+  color: #3d4852;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 5px 0px;
 }
 
-@media all and (max-width:768px) {
-    .container {
-        display: grid;
-        position: relative;
-        grid-template-columns: 1fr;
-        padding: 10px 0px;
-        margin: 0;
-        left: 0px;
-    }
+@media all and (max-width: 768px) {
+  .container {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr;
+    padding: 10px 0px;
+    margin: 0;
+    left: 0px;
+  }
 }
